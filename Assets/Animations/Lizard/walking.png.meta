@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 4a3dacb38d6c049f7ac0ce1b8b4e85c6
+guid: 70569d7a25e1f43448ea7979578d37e3
 TextureImporter:
   fileIDToRecycleName:
     21300000: npc_deimaginator__x1_walk_png_1354836023_0
@@ -38,7 +38,7 @@ TextureImporter:
   generateCubemap: 0
   seamlessCubemap: 0
   textureFormat: -1
-  maxTextureSize: 4096
+  maxTextureSize: 1024
   textureSettings:
     filterMode: -1
     aniso: 16
