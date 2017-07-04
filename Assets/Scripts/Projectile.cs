@@ -19,4 +19,18 @@ public class Projectile : MonoBehaviour {
 	/* void OnBecameInvisible () {
 		Destroy(gameObject);
 	} */
+	
+	void OnTriggerEnter2D (Collider2D other) {
+		GameObject obj = other.gameObject;
+		
+		if (!obj.GetComponent<Attacker>()) {
+			return;
+		}
+		
+		Health health = obj.GetComponent<Health>();
+		if (health) {
+			health.DealDamage(damage);
+			Destroy(gameObject);
+		}
+	}
 }

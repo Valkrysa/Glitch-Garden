@@ -10,7 +10,7 @@ public class shooter : MonoBehaviour {
 		GameObject newProjectile = Instantiate (projectile) as GameObject;
 		newProjectile.transform.SetParent(projectileParent.transform);
 		
-		GameObject gun = GameObject.Find("Gun"); // could have just dragged this her in the inspector but I wanted to show an alternative to the way ben is doing it
+		GameObject gun = transform.Find("Gun").gameObject; // could have just dragged this her in the inspector but I wanted to show an alternative to the way ben is doing it
 		
 		if (gun) {
 			newProjectile.transform.position = gun.transform.position;
