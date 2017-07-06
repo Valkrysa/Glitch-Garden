@@ -4,7 +4,16 @@ using System.Collections;
 public class shooter : MonoBehaviour {
 
 	public GameObject projectile;
-	public GameObject projectileParent;
+
+	private GameObject projectileParent;
+	
+	void Start () {
+		projectileParent = GameObject.Find("Projectiles");
+		
+		if (!projectileParent) {
+			projectileParent = new GameObject("Projectiles");
+		}
+	}
 	
 	private void Fire () {
 		GameObject newProjectile = Instantiate (projectile) as GameObject;
