@@ -21,10 +21,6 @@ public class DefenderSpawner : MonoBehaviour {
 	}
 	
 	void OnMouseDown () {
-		print (Input.mousePosition);
-		print (CalculateWorldPointOfMouseClick());
-		print (SnapToGrid(CalculateWorldPointOfMouseClick()));
-		
 		Vector2 rawPos = CalculateWorldPointOfMouseClick();
 		Vector2 roundedPos = SnapToGrid(rawPos);
 		GameObject defender = Button.selectedDefender;
@@ -47,10 +43,6 @@ public class DefenderSpawner : MonoBehaviour {
 		float distanceFromCamera = 10f;
 		
 		Vector3 weirdTriplet = new Vector3(mouseX, mouseY, distanceFromCamera);
-		print ("===============");
-		print (weirdTriplet);
-		print (myCamera.transform.position);
-		print ("===============");
 		Vector2 worldPos = myCamera.ScreenToWorldPoint(weirdTriplet);
 		
 		return worldPos;
