@@ -2,5 +2,16 @@
 using System.Collections;
 
 public class Stone : MonoBehaviour {
-	// only exists at the moment for checks
+
+	private Animator animator;
+	
+	void Start () {
+		animator = GetComponent<Animator>();
+	}
+
+	void OnTriggerStay2D (Collider2D other) {
+		if (other.GetComponent<Attacker>()) {
+			animator.SetTrigger("underAttack trigger");
+		}
+	}
 }

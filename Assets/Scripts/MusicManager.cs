@@ -4,7 +4,8 @@ using System.Collections;
 public class MusicManager : MonoBehaviour {
 
 	public AudioClip[] levelMusicChangeArray;
-	
+	public AudioClip victoryMusic;
+
 	private AudioSource audioSource;
 	
 	void Awake(){
@@ -26,6 +27,11 @@ public class MusicManager : MonoBehaviour {
 	
 	public void SetVolume (float volume) {
 		audioSource.volume = volume;
+	}
+	
+	public void PlayVictory () {
+		audioSource.clip = victoryMusic;
+		audioSource.Play();
 	}
 
 }
