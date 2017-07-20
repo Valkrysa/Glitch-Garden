@@ -24,7 +24,7 @@ public class Spawner : MonoBehaviour {
 			Debug.LogWarning ("Spawn rate capped by frame rate");
 		}
 		
-		float threshold = spawnsPerSecond * Time.deltaTime / 5;
+		float threshold = spawnsPerSecond * Time.deltaTime / 5; // 5 lanes
 		
 		return (Random.value < threshold);
 	}
