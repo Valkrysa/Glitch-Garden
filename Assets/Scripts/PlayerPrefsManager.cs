@@ -28,7 +28,7 @@ public class PlayerPrefsManager : MonoBehaviour {
 	}
 	
 	public static float GetMasterVolume () {
-		return PlayerPrefs.GetFloat (MASTER_VOLUME_KEY);
+		return PlayerPrefs.GetFloat (MASTER_VOLUME_KEY, 0.3f);
 	}
 	
 	public static void UnlockLevel (int level) {
