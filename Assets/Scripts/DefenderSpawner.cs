@@ -4,12 +4,15 @@ using System.Collections;
 public class DefenderSpawner : MonoBehaviour {
 
 	public Camera myCamera;
+	public bool paused;
 	
 	private GameObject parent;
 	private StarDisplay starDisplay;
 
 	// Use this for initialization
 	void Start () {
+		paused = false;
+
 		parent = GameObject.Find ("Defenders");
 		if (!parent) {
 			parent = new GameObject("Defenders");
@@ -24,17 +27,19 @@ public class DefenderSpawner : MonoBehaviour {
 	}
 	
 	void OnMouseDown () {
-		Vector2 rawPos = CalculateWorldPointOfMouseClick();
-		Vector2 roundedPos = SnapToGrid(rawPos);
-		
-		GameObject defender = Button.selectedDefender;
-		
-		int defenderCost = defender.GetComponent<Defender>().starCost;
-		
-		if (starDisplay.UseStars(defenderCost) == StarDisplay.Status.SUCCESS) {
-			SpawnDefender(roundedPos, defender);
-		} else {
-			Debug.Log ("Insufficient stars");
+		if (!paused) {
+			Vector2 rawPos = CalculateWorldPointOfMouseClick();
+			Vector2 roundedPos = SnapToGrid(rawPos);
+			
+			GameObject defender = Button.selectedDefender;
+			
+			int defenderCost = defender.GetComponent<Defender>().starCost;
+			
+			if (starDisplay.UseStars(defenderCost) == StarDisplay.Status.SUCCESS) {
+				SpawnDefender(roundedPos, defender);
+			} else {
+				Debug.Log ("Insufficient stars");
+			}
 		}
 	}
 	
